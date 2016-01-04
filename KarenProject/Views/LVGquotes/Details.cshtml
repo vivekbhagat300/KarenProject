@@ -1,0 +1,178 @@
+﻿@model KarenProject.Models.LVGquote
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LVGquote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.shaftType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shaftType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codeComplence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeComplence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.part12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.part12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LiftType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiftType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noOfLifts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noOfLifts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entranceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entranceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.liftModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.liftModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loadBearingWall)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loadBearingWall)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noOfFloors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noOfFloors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noOfEntrances)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noOfEntrances)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noOfReAdEntrances)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noOfReAdEntrances)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.driveSystem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.driveSystem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.power)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.power)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.speed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.speed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conCabSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conCabSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conCabLocVer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conCabLocVer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conCabLocHor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conCabLocHor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.section1ModelId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.section1ModelId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doorsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doorsNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

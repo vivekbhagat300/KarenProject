@@ -1,0 +1,59 @@
+﻿@model IEnumerable<KarenProject.Models.MainQuote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LiftType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LiftModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.section1ModelId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.expiry)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LiftType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LiftModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.section1ModelId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expiry)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

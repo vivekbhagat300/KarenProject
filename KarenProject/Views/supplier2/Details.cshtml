@@ -1,0 +1,66 @@
+﻿@model KarenProject.Models.supplier2
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>supplier2</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LiftType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiftType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LiftModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiftModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Part)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Part)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.section1ModelId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.section1ModelId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expiry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expiry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.speed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.speed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<KarenProject.Models.MainQuote>
+<table class="table">
+    <tr>
+        <th>
+           Quote No
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShaftType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeComplence)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.LiftType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfFloors)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.LiftModel)
+        </th>
+       
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShaftType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeComplence)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.LiftType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfFloors)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.LiftModel)
+            </td>
+            
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.id}) 
+               
+            </td>
+        </tr>
+    }
+
+</table>

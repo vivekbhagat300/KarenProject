@@ -1,0 +1,443 @@
+﻿@model KarenProject.Models.section1Model
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Section1 : Project Details</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-control-static">
+        <h4>Contact Details</h4>
+        <hr />
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+
+                <img src="~/Content/Logo/details.png" height="30" width="30" />
+            </div>
+        </div>
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        @*<div class="row">
+                        <div class=" col-md-2">
+                           Project ID
+                        </div>
+                        <div class=" col-md-2">
+
+                            @Html.TextBoxFor(model => model.id, new { @id = "ID" });
+
+                        </div>
+            </div>*@
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.DateJoined, htmlAttributes: new { @class = "control-label " })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.TextBoxFor(model => model.DateJoined, new { @id = "Datepicker", @Value = @DateTime.Now.Year + "/" + @DateTime.Now.Month + "/" + @DateTime.Now.Day })
+                @Html.ValidationMessageFor(model => model.DateJoined, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="   col-md-2 " style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Branch, htmlAttributes: new { @class = "control-label " })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Branch,
+                  new List<SelectListItem> {
+                      new SelectListItem { Value = "" , Text = "" },
+                      new SelectListItem { Value = "NSW" , Text = "NSW" },
+                       new SelectListItem { Value = "QLD" , Text = "QLD" },
+                       new SelectListItem { Value = "VIC" , Text = "VIC" },
+                       new SelectListItem { Value = "WA" , Text = "WA" }
+                    },
+            new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Branch, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.SalesPerson, htmlAttributes: new { @class = "control-label " })
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.SalesPerson,
+                  new List<SelectListItem> {
+                       new SelectListItem { Value = "Craig Schmidt" , Text = "Craig Schmidt" },
+                       new SelectListItem { Value = "David Mayer" , Text = "David Mayer" },
+                       new SelectListItem { Value = "David Smith" , Text = "David Smith" },
+                       new SelectListItem { Value = "Kevin Bunting" , Text = "Kevin Bunting" },
+                       new SelectListItem { Value = "Michael Heltborg" , Text = "Michael Heltborg" },
+                       new SelectListItem { Value = "Dijana Vojvodic" , Text = "Dijana Vojvodic" },
+                       new SelectListItem { Value = "Paul Solotwa" , Text = "Paul Solotwa" },
+                       new SelectListItem { Value = "Mike Booth" , Text = "Mike Booth" }
+                    },
+       new { @class = "form-control" })
+
+            </div>     @Html.ValidationMessageFor(model => model.SalesPerson, "", new { @class = "text-danger" })
+
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.RefferedBy, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.RefferedBy,
+                  new List<SelectListItem> {
+                       new SelectListItem { Value = "To be updated" , Text = "To be updated" },
+                       new SelectListItem { Value = "Architect" , Text = "Architect" },
+                       new SelectListItem { Value = "Builder" , Text = "Builder" },
+                       new SelectListItem { Value = "Developer" , Text = "Developer" },
+                       new SelectListItem { Value = "ELHE Email Campaign" , Text = "ELHE Email Campaign" },
+                       new SelectListItem { Value = "Friend" , Text = "Friend" },
+                       new SelectListItem { Value = "Occupational Therapist" , Text = "Occupational Therapist" },
+                       new SelectListItem { Value = "Owner" , Text = "Owner" },
+                       new SelectListItem { Value = "Referral" , Text = "Referral" },
+                       new SelectListItem { Value = "Signage – Car" , Text = "Signage – Car" },
+                       new SelectListItem { Value = "Signage –Showroom Location" , Text = "Signage –Showroom Location" },
+                       new SelectListItem { Value = "Signage – Coreflute" , Text = "Signage – Coreflute" },
+                       new SelectListItem { Value = "Specifier" , Text = "Specifier" },
+                       new SelectListItem { Value = "Website – ELHE" , Text = "Website – ELHE" },
+                       new SelectListItem { Value = "Other Please state" , Text = "Other Please state" }
+                    },
+       new { @class = "form-control" })   @Html.ValidationMessageFor(model => model.RefferedBy, "", new { @class = "text-danger" })
+
+</div>
+
+<div class=" col-md-2" style="float: left; width: 10%;">
+    @Html.LabelFor(model => model.Competition, htmlAttributes: new { @class = "control-label" })
+</div> <div class=" col-md-2">
+
+
+
+    @Html.DropDownListFor(model => model.Competition,
+                  new List<SelectListItem> {
+                        new SelectListItem { Value = "To be updated" , Text = "To be updated" },
+                       new SelectListItem { Value = "Going Up" , Text = "Going Up" },
+                       new SelectListItem { Value = "Liftshop" , Text = "Liftshop" },
+                       new SelectListItem { Value = "Masterlifts" , Text = "Masterlifts" },
+                       new SelectListItem { Value = "Kone" , Text = "Kone" },
+                       new SelectListItem { Value = "Schindlerg" , Text = "Schindler" },
+                       new SelectListItem { Value = "Liftronic" , Text = "Liftronic" },
+                       new SelectListItem { Value = "PR King" , Text = "PR King" },
+                       new SelectListItem { Value = "Direct Lifts" , Text = "Direct Lifts" },
+                       new SelectListItem { Value = "Otis" , Text = "Otis" },
+                       new SelectListItem { Value = "Aussie Lifts" , Text = "Aussie Lifts" }
+                    },
+       new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Competition, "", new { @class = "text-danger" })
+</div>
+
+
+<div class=" col-md-2" style="float: left; width: 10%;">
+    @Html.LabelFor(model => model.IdStatus, htmlAttributes: new { @class = "control-label " })
+</div> <div class=" col-md-2">
+    @Html.DropDownListFor(model => model.IdStatus,
+                  new List<SelectListItem> {
+                       new SelectListItem { Value = "Access Consultant" , Text = "Access Consultant" },
+                       new SelectListItem { Value = "Architect" , Text = "Architect" },
+                       new SelectListItem { Value = "Builder" , Text = "Builder" },
+                       new SelectListItem { Value = "Developer" , Text = "Developer" },
+                       new SelectListItem { Value = "Draftsman" , Text = "Draftsman" },
+                       new SelectListItem { Value = "Estimator" , Text = "Estimator" },
+                       new SelectListItem { Value = "Home Owner" , Text = "Home Owner" },
+                       new SelectListItem { Value = "Interior Designer" , Text = "Interior Designer" },
+                       new SelectListItem { Value = "Occupational Therapist" , Text = "Occupational Therapist" },
+                       new SelectListItem { Value = "Project Manager" , Text = "Project Manager" },
+                       new SelectListItem { Value = "Specifier" , Text = "Specifier" }
+                    },
+       new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.IdStatus, "", new { @class = "text-danger" })
+</div>
+
+
+</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="row">
+    <div class=" col-md-2" style="float: left; width: 10%;">
+        @Html.LabelFor(model => model.Company, htmlAttributes: new { @class = "control-label " })
+    </div> <div class=" col-md-6">
+        @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+              
+
+    </div>
+
+    <div class=" col-md-2" style="float: left; width: 10%;">
+        @Html.LabelFor(model => model.ContactName, htmlAttributes: new { @class = "control-label " })
+    </div> <div class=" col-md-2">
+        @Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })
+
+    </div>
+</div>
+<div class="row">&nbsp;</div>
+
+<div class="row">
+    <div class="col-md-2" style="float: left; width: 10%;">
+        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label " })
+    </div> <div class=" col-md-2">
+        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class=" col-md-2" style="float: left; width: 10%;">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+    </div> <div class=" col-md-6">
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+       <span class="text-danger field-validation-valid" data-valmsg-for="EmailEmpty" data-valmsg-replace="true"></span>
+    </div>
+
+</div>
+
+<div class="row">&nbsp;</div>
+ <hr>
+<div class="row">
+    <div class=" col-md-2" style="float: left; width: 10%;">
+        @Html.LabelFor(model => model.ContactAdress, htmlAttributes: new { @class = "control-label" })
+    </div> <div class=" col-md-4">
+        @Html.EditorFor(model => model.ContactAdress, new { htmlAttributes = new { @class = "form-control", id = "ContactAdress" } })
+        @Html.ValidationMessageFor(model => model.ContactAdress, "", new { @class = "text-danger" })
+
+    </div>
+
+    </div>
+        <div class="row">&nbsp;</div>
+
+        <div class="row">
+            <div class="col-md-1" style="float: left;width:10%">
+                @Html.LabelFor(model => model.ContactSuburb, htmlAttributes: new { @class = "control-label" })
+            </div> <div class="col-md-2">
+                @Html.EditorFor(model => model.ContactSuburb, new { htmlAttributes = new { @class = "form-control", id = "ContactSuburb" } })
+                @Html.ValidationMessageFor(model => model.ContactSuburb, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2" style="float: left; width: 5%;">
+                @Html.LabelFor(model => model.ContactState, htmlAttributes: new { @class = "control-label" })
+            </div> <div class=" col-md-1" style="float: left; width: 10%;">
+
+                @Html.DropDownListFor(model => model.ContactState,
+                  new List<SelectListItem> {
+                       new SelectListItem { Value = "" , Text = "" },
+                                             new SelectListItem { Value = "NSW" , Text = "NSW" },
+                       new SelectListItem { Value = "QLD" , Text = "QLD" },
+                       new SelectListItem { Value = "VIC" , Text = "VIC" },
+                       new SelectListItem { Value = "ACT" , Text = "ACT" },
+                       new SelectListItem { Value = "TAS" , Text = "TAS" },
+                       new SelectListItem { Value = "NT" , Text = "NT" },
+                       new SelectListItem { Value = "WA" , Text = "WA" },
+                        new SelectListItem { Value = "SA" , Text = "SA" }
+                    },
+            new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.ContactState, "", new { @class = "text-danger" })
+
+        </div>
+        <div class=" col-md-1" style="float: left; width: 10%;">
+            @Html.LabelFor(model => model.ContactPostCode, htmlAttributes: new { @class = "control-label" })
+        </div> <div class=" col-md-1">
+            @Html.EditorFor(model => model.ContactPostCode, new { htmlAttributes = new { @class = "form-control", id = "ContactPostCode" } })
+            @Html.ValidationMessageFor(model => model.ContactPostCode, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+        <hr>
+    <h4>Project Details</h4>
+    <div class="row">&nbsp;</div>
+    <div class=row>
+        <div class=" col-md-2" style="float: left; width: 10%;">
+            @Html.LabelFor(model => model.ProjectType, htmlAttributes: new { @class = "control-label " })
+        </div> <div class=" col-md-2">
+            @Html.DropDownListFor(model => model.ProjectType,
+                  new List<SelectListItem> {
+                       new SelectListItem { Value = "" , Text = "" },
+                       new SelectListItem { Value = "Residential" , Text = "Residential" },
+                       new SelectListItem { Value = "Commercial" , Text = "Commercial" },
+
+                    },
+       new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ProjectType, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+<hr>
+    <div class="row">
+        <div class=" col-md-2" style="float: left; width: 10%;">
+            @Html.LabelFor(model => model.ProjAdress, htmlAttributes: new { @class = "control-label" })
+        </div> <div class=" col-md-3">
+            @Html.EditorFor(model => model.ProjAdress, new { htmlAttributes = new { @class = "form-control", id = "ProjAdress" } })
+            @Html.ValidationMessageFor(model => model.ProjAdress, "", new { @class = "text-danger" })
+
+        </div>
+        @Html.CheckBox("CopyContactDetails", new { id = "CopyContactDetails" })
+        Same as contact address
+        </div>
+        <div class="row">&nbsp;</div>
+
+        <div class="row">
+            <div class=" col-md-1" style="float:left;width:10%">
+                @Html.LabelFor(model => model.ProjectSuburb, htmlAttributes: new { @class = "control-label" })
+            </div> <div class=" col-md-2">
+                @Html.EditorFor(model => model.ProjectSuburb, new { htmlAttributes = new { @class = "form-control", id = "ProjectSuburb" } })
+                @Html.ValidationMessageFor(model => model.ProjectSuburb, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-1" style="width:5%">
+                @Html.LabelFor(model => model.ProjState, htmlAttributes: new { @class = "control-label" })
+            </div> <div class=" col-md-1">
+    @Html.LabelFor(model => model.ProjState, htmlAttributes: new { @class = "control-label" })
+</div> <div class=" col-md-1">
+    @Html.DropDownListFor(model => model.ProjState,
+                  new List<SelectListItem> {
+                       new SelectListItem { Value = "" , Text = "" },
+                       new SelectListItem { Value = "NSW" , Text = "NSW" },
+                       new SelectListItem { Value = "QLD" , Text = "QLD" },
+                       new SelectListItem { Value = "VIC" , Text = "VIC" },
+                       new SelectListItem { Value = "ACT" , Text = "ACT" },
+                       new SelectListItem { Value = "TAS" , Text = "TAS" },
+                       new SelectListItem { Value = "NT" , Text = "NT" },
+                       new SelectListItem { Value = "WA" , Text = "WA" },
+                        new SelectListItem { Value = "SA" , Text = "SA" }
+                    },
+            new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.ContactState, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.ProjState, "", new { @class = "text-danger" })
+
+        </div>
+            <div class=" col-md-1">
+                @Html.LabelFor(model => model.ProjPostCode, htmlAttributes: new { @class = "control-label" })
+            </div> <div class=" col-md-1">
+                @Html.EditorFor(model => model.ProjPostCode, new { htmlAttributes = new { @class = "form-control", id = "ProjPostCode" } })
+                @Html.ValidationMessageFor(model => model.ProjPostCode, "", new { @class = "text-danger" })
+            </div>
+
+
+        </div>
+        <hr>
+        <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-md-2" style="float: left; width: 10%;">
+            @Html.LabelFor(model => model.ProjectName, htmlAttributes: new { @class = "control-label" })
+        </div> <div class=" col-md-9">
+            @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProjectName, "", new { @class = "text-danger" })
+
+        </div>
+        @Html.CheckBox("CopyProjectAdd")
+        Same as project address
+    </div>
+        
+    <div class="row">&nbsp;</div>
+    <div class="form-group">
+        <div class=" col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="/Content/dataTable/demo_table.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery.dataTables.1.8.2.js" type="text/javascript"></script>
+
+    <script>
+        $("Form[action='/section1Model/Create']").submit(function () {
+
+            var flagValid = true;
+            if ($("#Company").val() == "") {
+                $("span[data-valmsg-for='Company']").html("The Company field is required.");
+                flagValid = false;
+            }
+            else {
+                $("span[data-valmsg-for='Company']").html("");
+            }
+
+            if ($("#Phone").val() == "") {
+                $("span[data-valmsg-for='Phone']").html("The Phone field is required.");
+                flagValid = false;
+            }
+            else {
+                $("span[data-valmsg-for='Phone']").html("");
+            }
+            
+            if ($("#Email").val() == "") {
+                $("span[data-valmsg-for='EmailEmpty']").html("The Email field is required.");
+                flagValid = false;
+            }
+            else {
+                $("span[data-valmsg-for='EmailEmpty']").html("");
+
+            }
+            
+            if ($("#ContactAdress").val() == "") {
+                $("span[data-valmsg-for='ContactAdress']").html("The ContactAdress field is required.");
+                flagValid = false;
+            }
+            else {
+                $("span[data-valmsg-for='ContactAdress']").html("");
+
+            }
+
+            if ($("#ContactSuburb").val() == "") {
+                $("span[data-valmsg-for='ContactSuburb']").html("The ContactSuburb field is required.");
+                flagValid = false;
+            }
+            else {
+                $("span[data-valmsg-for='ContactSuburb']").html("");
+
+            }
+
+            if ($("#ContactState").val() == "") {
+                $("span[data-valmsg-for='ContactState']").html("The ContactState field is required.");
+                flagValid = false;
+            }
+            else {
+                $("span[data-valmsg-for='ContactState']").html("");
+
+            }
+            
+
+            if ($("#ContactPostCode").val() == "") {
+                $("span[data-valmsg-for='ContactPostCode']").html("The ContactPostCode field is required.");
+                flagValid = false;
+            }
+            else {
+                $("span[data-valmsg-for='ContactPostCode']").html("");
+
+            }
+            
+            return flagValid;
+        })
+
+        </script>
+    <script>
+
+        $('#CopyContactDetails').click(function () {
+
+            if ($('#CopyContactDetails').is(":checked")) {
+
+                $('#ProjAdress').val($('#ContactAdress').val());
+                $('#ProjectSuburb').val($('#ContactSuburb').val());
+                $('#ProjState').val($('#ContactState').val());
+                $('#ProjPostCode').val($('#ContactPostCode').val());
+            }
+        })
+        $('#CopyProjectAdd').click(function () {
+
+            if ($('#CopyProjectAdd').is(":checked")) {
+
+                $('#ProjectName').val($('#ProjAdress').val() + ", " + $('#ProjectSuburb').val() + ", " + $('#ProjState').val());
+
+            }
+        })
+    </script>
+}

@@ -1,0 +1,148 @@
+﻿@model IEnumerable<KarenProject.Models.MainQuote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Quote No 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shaftType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeComplence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.part12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LiftType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noOfLifts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entranceType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.liftModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.loadBearingWall)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noOfFloors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noOfEntrances)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noOfReAdEntrances)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.driveSystem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.power)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.speed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conCabSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conCabLocVer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conCabLocHor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.section1ModelId)
+        </th>
+        <th>
+           
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.shaftType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeComplence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.part12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LiftType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noOfLifts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.entranceType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.liftModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.loadBearingWall)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noOfFloors)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noOfEntrances)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noOfReAdEntrances)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.driveSystem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.power)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.speed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.capacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conCabSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conCabLocVer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conCabLocHor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.section1ModelId)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

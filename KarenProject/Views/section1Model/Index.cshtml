@@ -1,0 +1,72 @@
+﻿@model IEnumerable<KarenProject.Models.section1Model>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<br />
+
+<p>
+   
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Project Name: @Html.TextBox("projectName" ,null,new { htmlAttributes = new { id = "search" }})    Quote No: @Html.TextBox("quoteNo")
+        
+        <input type="submit" value="Search" style="color:black" />
+    </p>
+    }
+    
+</p>
+<br />
+
+
+@Html.ActionLink("Create New", "Create")
+<table class="table">
+    <tr>
+        <th>
+           Project ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesPerson)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesPerson)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Quotes", "Index", "MainQuotes",new { id=item.id },false) 
+           
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,2680 @@
+﻿@model KarenProject.Models.MainQuote
+
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>GENERAL SPECIFICATION</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-control-static">
+        <h4>IGVquote</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.ShaftType, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.ShaftType,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Masonry" , Text = "Masonry" },
+                       new SelectListItem { Value = "Tower" , Text = "Tower" },
+                       new SelectListItem { Value = "Top Hat" , Text = "Top Hat" }
+
+                    },
+            new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ShaftType, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.CodeComplence, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.CodeComplence,
+               new SelectList(ViewBag.CodeComp, "Text", "Value"),
+     new { @class = "form-control", id = "codeComplence" })
+                @Html.ValidationMessageFor(model => model.CodeComplence, "", new { @class = "text-danger" })
+
+            </div>
+
+
+            <div class=" col-md-1">
+                <b>Part 12</b>
+                @Html.CheckBoxFor(model => model.Part12, new { id = "Part12" })
+                @Html.ValidationMessageFor(model => model.Part12, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.LiftType, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LiftType,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "DomusLift" , Text = "DomusLift" },
+                       new SelectListItem { Value = "DomusXL" , Text = "DomusXL" },
+                       new SelectListItem { Value = "Domus Evolution" , Text = "Domus Evolution" },
+                       new SelectListItem { Value = "Domus Spirit" , Text = "Domus Spirit" },
+                       new SelectListItem { Value = "DomusXL Spirit" , Text = "DomusXL Spirit" }
+
+
+                    },
+                    new { @class = "form-control", id = "LiftType" })
+                @Html.ValidationMessageFor(model => model.LiftType, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.NoOfLifts, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.NoOfLifts, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NoOfLifts, "", new { @class = "text-danger" })
+
+            </div>
+
+
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.EntranceType, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.EntranceType,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Front entrance" , Text = "Front entrance" },
+                       new SelectListItem { Value = "Front & Rear entrance" , Text = "Front & Rear entrance" },
+                       new SelectListItem { Value = "Front & Adjacent – Left" , Text = "Front & Adjacent – Left" },
+                       new SelectListItem { Value = "Front & Adjacent – Right" , Text = "Front & Adjacent – Right" }
+
+                    },
+     new { @class = "form-control", id = "entranceType" })
+                @Html.ValidationMessageFor(model => model.EntranceType, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.LiftModel, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LiftModel,
+                       new List<SelectListItem> {
+                            new SelectListItem { Value = "1C/1", Text = "1C/1" },
+                        new SelectListItem { Value = "1C/2", Text = "1C/2" },
+                        new SelectListItem { Value = "1C/3", Text = "1C/3" },
+                        new SelectListItem { Value = "1C/4", Text = "1C/4" },
+                        new SelectListItem { Value = "1C/5", Text = "1C/5" },
+                        new SelectListItem { Value = "1C/6", Text = "1C/6" },
+                        new SelectListItem { Value = "1C/7", Text = "1C/7" },
+                        new SelectListItem { Value = "1C/8", Text = "1C/8" },
+                        new SelectListItem { Value = "1C/12", Text = "1C/12" },
+                        new SelectListItem { Value = "1C/Special", Text = "1C/Special" },
+                        new SelectListItem { Value = "1C/small", Text = "1C/small" },
+                        new SelectListItem { Value = "1L/1", Text = "1L/1" },
+                        new SelectListItem { Value = "1L/2", Text = "1L/2" },
+                        new SelectListItem { Value = "1L/3", Text = "1L/3" },
+                        new SelectListItem { Value = "1L/4", Text = "1L/4" },
+                        new SelectListItem { Value = "1L/5", Text = "1L/5" },
+                        new SelectListItem { Value = "1L/6", Text = "1L/6" },
+                        new SelectListItem { Value = "1L/7", Text = "1L/7" },
+                        new SelectListItem { Value = "1L/Special", Text = "1L/Special" },
+                        new SelectListItem { Value = "1L/small", Text = "1L/small" }
+
+                    },
+                new { @class = "form-control", id = "liftModel" })
+                @Html.ValidationMessageFor(model => model.LiftModel, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.LoadBearingWall, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LoadBearingWall,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Left" , Text = "Left" },
+                       new SelectListItem { Value = "Right" , Text = "Right" },
+
+                    },
+new { @class = "form-control", id = "loadBearingWall" })
+                @Html.ValidationMessageFor(model => model.LoadBearingWall, "", new { @class = "text-danger" })
+
+            </div>
+
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.NoOfFloors, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.NoOfFloors,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "2" , Text = "2" },
+                       new SelectListItem { Value = "3" , Text = "3" },
+                       new SelectListItem { Value = "4" , Text = "4" },
+                       new SelectListItem { Value = "5" , Text = "5" }
+
+                    },
+     new { @class = "form-control", id = "NoOfFloors" })
+                @Html.ValidationMessageFor(model => model.NoOfFloors, "", new { @class = "text-danger" })
+
+            </div>
+
+
+
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.DriveSystem, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.DriveSystem,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Hydraulic " , Text = "Hydraulic " },
+
+
+                    },
+                new { @class = "form-control", id = "driveSystem" })
+                @Html.ValidationMessageFor(model => model.DriveSystem, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+
+                @Html.LabelFor(model => model.Power, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Power,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Single Phase" , Text = "Single Phase" },
+
+
+                    },
+         new { @class = "form-control", id = "power" })
+                @Html.ValidationMessageFor(model => model.Power, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Speed, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Speed,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "0.25" , Text = "0.25" },
+
+
+                    },
+         new { @class = "form-control", id = "Speed" })
+                @Html.ValidationMessageFor(model => model.Speed, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Capacity, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Capacity,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "300 Kg" , Text = "300 Kg" },
+
+
+                    },
+             new { @class = "form-control", id = "capacity" })
+                @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.ConCabSize, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+
+                @Html.EditorFor(model => model.ConCabSize, new { htmlAttributes = new { @class = "form-control", id = "conCabSize" } })
+                @Html.ValidationMessageFor(model => model.ConCabSize, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.ConCabLocVer, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.ConCabLocVer, new { htmlAttributes = new { @class = "form-control", id = "sss" } })
+                @Html.ValidationMessageFor(model => model.ConCabLocVer, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.ConCabLocHor, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.ConCabLocHor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConCabLocHor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+        <h2> Section 3 : DIMENSIONS</h2>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2">
+                <b>  Internal Car Size </b>
+            </div><div class=" col-md-2">
+
+                @Html.EditorFor(model => model.IntCarSizeWide, new { htmlAttributes = new { @class = "form-control", id = "IntCarSizeWide" } })
+
+                @Html.ValidationMessageFor(model => model.IntCarSizeWide, "", new { @class = "text-danger" })
+
+            </div><div class=" col-md-1"><b> mm Wide X</b></div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.IntCarSizeDeep, new { htmlAttributes = new { @class = "form-control", id = "IntCarSizeDeep" } })
+                @Html.ValidationMessageFor(model => model.IntCarSizeDeep, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-1"> <b> mm Depth</b></div><div class=" col-md-1">
+                @Html.LabelFor(model => model.CarHeight, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CarHeight,
+                       new List<SelectListItem> {
+                           new SelectListItem { Value = "1900" , Text = "1900" },
+                           new SelectListItem { Value = "1950" , Text = "1950" },
+                       new SelectListItem { Value = "2000" , Text = "2000" },
+                       new SelectListItem { Value = "2050" , Text = "2050" },
+                       new SelectListItem { Value = "2100" , Text = "2100" },
+
+                    },
+         new { @class = "form-control", id = "CarHeight" })
+                @Html.ValidationMessageFor(model => model.DriveSystem, "", new { @class = "text-danger" })
+            </div><div class=" col-md-1"><b> mm </b></div>
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2">
+                <b>  Shaft Size </b>
+            </div><div class=" col-md-2">
+
+                @Html.EditorFor(model => model.ShaftSizeWide, new { htmlAttributes = new { @class = "form-control", id = "ShaftSizeWide" } })
+
+                @Html.ValidationMessageFor(model => model.ShaftSizeWide, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                <b> mm Wide  X</b>
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.ShaftSizeDeep, new { htmlAttributes = new { @class = "form-control", id = "ShaftSizeDeep" } })
+                @Html.ValidationMessageFor(model => model.ShaftSizeDeep, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                <b> mm Depth</b>
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2">
+                <b> Door 1 - front1 </b>
+            </div><div class=" col-md-2">
+
+                @Html.EditorFor(model => model.Door1SizeWide, new { htmlAttributes = new { @class = "form-control", id = "Door1SizeWide" } })
+
+                @Html.ValidationMessageFor(model => model.Door1SizeWide, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                <b> mm Wide      </b>
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.Doo1SizeDeep, new { htmlAttributes = new { @class = "form-control", id = "Door1SizeDeep", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.ShaftSizeDeep, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                <b> mm Height</b>
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2">
+                <b>   Door 2- Rear adjacent </b>
+            </div><div class=" col-md-2">
+
+                @Html.EditorFor(model => model.Door2SizeWide, new { htmlAttributes = new { @class = "form-control", id = "Door2SizeWide" } })
+
+                @Html.ValidationMessageFor(model => model.Door2SizeWide, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                <b> mm Wide      X</b>
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.Door2SizeDeep, new { htmlAttributes = new { @class = "form-control", id = "Door2SizeDeep", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Door2SizeDeep, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                <b> mm Height</b>
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2">
+                @Html.LabelFor(model => model.Headroom, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+
+                @Html.EditorFor(model => model.Headroom, new { htmlAttributes = new { @class = "form-control", id = "Headroom" } })
+                @Html.ValidationMessageFor(model => model.Headroom, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.LabelFor(model => model.Pit, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.Pit, new { htmlAttributes = new { @class = "form-control", id = "Pit" } })
+                @Html.ValidationMessageFor(model => model.Pit, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                @Html.LabelFor(model => model.Travel, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.Travel, new { htmlAttributes = new { @class = "form-control", id = "Travel" } })
+                @Html.ValidationMessageFor(model => model.Travel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <b> Floor to Floor Distances</b>
+        <div class="row">
+            <div class=" col-md-2"></div>
+            <div class=" col-md-2">
+                <b>  From</b>
+            </div>
+            <div class=" col-md-2">
+                <b> To</b>
+            </div>
+            <div class=" col-md-2">
+                <b>  Distance</b>
+            </div>
+        </div>
+        <div class="row" id="FtoFD1">
+            <div class=" col-md-2"></div> <div class=" col-md-2">
+
+                @Html.EditorFor(model => model.FtoFStart1, new { htmlAttributes = new { @class = "form-control", id = "FtoFStart1" } })
+                @Html.ValidationMessageFor(model => model.FtoFStart1, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFFinish1, new { htmlAttributes = new { @class = "form-control", id = "FtoFFinish1" } })
+                @Html.ValidationMessageFor(model => model.FtoFFinish1, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFDistance1, new { htmlAttributes = new { @class = "form-control", id = "FtoFDistance1" } })
+                @Html.ValidationMessageFor(model => model.FtoFDistance1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row" id="FtoFD2">
+            <div class=" col-md-2"></div> <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFStart1, new { htmlAttributes = new { @class = "form-control", id = "FtoFStart2" } })
+                @Html.ValidationMessageFor(model => model.FtoFStart2, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFFinish1, new { htmlAttributes = new { @class = "form-control", id = "FtoFFinish2" } })
+                @Html.ValidationMessageFor(model => model.FtoFFinish2, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFDistance2, new { htmlAttributes = new { @class = "form-control", id = "FtoFDistance2" } })
+                @Html.ValidationMessageFor(model => model.FtoFDistance2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row" id="FtoFD3">
+            <div class=" col-md-2"></div> <div class=" col-md-2">
+
+                @Html.EditorFor(model => model.FtoFStart3, new { htmlAttributes = new { @class = "form-control", id = "FtoFStart3" } })
+                @Html.ValidationMessageFor(model => model.FtoFStart3, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFFinish3, new { htmlAttributes = new { @class = "form-control", id = "FtoFFinish3" } })
+                @Html.ValidationMessageFor(model => model.FtoFFinish3, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFDistance3, new { htmlAttributes = new { @class = "form-control", id = "FtoFDistance3" } })
+                @Html.ValidationMessageFor(model => model.FtoFDistance3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row" id="FtoFD4">
+            <div class=" col-md-2"></div> <div class=" col-md-2">
+
+                @Html.EditorFor(model => model.FtoFStart4, new { htmlAttributes = new { @class = "form-control", id = "FtoFStart4" } })
+                @Html.ValidationMessageFor(model => model.FtoFStart4, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFFinish4, new { htmlAttributes = new { @class = "form-control", id = "FtoFFinish4" } })
+                @Html.ValidationMessageFor(model => model.FtoFFinish4, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.FtoFDistance4, new { htmlAttributes = new { @class = "form-control", id = "FtoFDistance4" } })
+                @Html.ValidationMessageFor(model => model.FtoFDistance4, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+        <h2> Section 4 : Car Finishes</h2>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div><div class="col-md-12">&nbsp;</div>
+        <div class="row ">
+            <div class=" col-md-2 " style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.CarWallsLHS, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CarWallsLHS,
+         new SelectList(ViewBag.CarWallsLHS, "Text", "Value"),
+new { @class = "form-control", id = "CarWallsLHS" })
+                @Html.ValidationMessageFor(model => model.CarWallsLHS, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.CarWallsRHS, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CarWallsRHS,
+         new SelectList(ViewBag.CarWallsLHS, "Text", "Value"),
+         new { @class = "form-control", id = "CarWallsRHS" })
+                @Html.ValidationMessageFor(model => model.CarWallsRHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.CarWallsRear, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CarWallsRear,
+                      new SelectList(ViewBag.CarWallsLHS, "Text", "Value"),
+  new { @class = "form-control", id = "CarWallsRear" })
+                @Html.ValidationMessageFor(model => model.CarWallsRear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row ">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Ceiling, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Ceiling,
+  new SelectList(ViewBag.Ceiling, "Text", "Value"),
+new { @class = "form-control", id = "Ceiling" })
+                @Html.ValidationMessageFor(model => model.Ceiling, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Floor, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Floor,
+  new SelectList(ViewBag.Floors, "Text", "Value"),
+  new { @class = "form-control", id = "Floor" })
+                @Html.ValidationMessageFor(model => model.Floor, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Profile, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Profile,
+               new SelectList(ViewBag.Profiles, "Text", "Value"),
+new { @class = "form-control", id = "Profile" })
+                @Html.ValidationMessageFor(model => model.Profile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row " id="special">
+            <div class=" col-md-2">
+                @Html.LabelFor(model => model.ProfileSpecial, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2" style="float: left; width: 10%;">
+
+                @Html.EditorFor(model => model.ProfileSpecial, new { htmlAttributes = new { @class = "form-control", id = "ProfileSpecial" } })
+                @Html.ValidationMessageFor(model => model.ProfileSpecial, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.ProfileSpecialInt, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-2">
+                @Html.EditorFor(model => model.ProfileSpecialInt, new { htmlAttributes = new { @class = "form-control", id = "ProfileSpecialInt" } })
+                @Html.ValidationMessageFor(model => model.ProfileSpecialInt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.CopType, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CopType,
+new SelectList(ViewBag.Cop, "Text", "Value"),
+new { @class = "form-control", id = "CopType" })
+                @Html.ValidationMessageFor(model => model.CopType, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-1"><b>Location</b></div>
+            <div class=" col-md-1">
+                <b>LHS</b>
+
+                @Html.EditorFor(model => model.CopLocLHS, new { id = "CopLocLHS" })
+
+
+                @Html.ValidationMessageFor(model => model.CopLocLHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>RHS</b>
+                @Html.EditorFor(model => model.CopLocRHS, new { id = "CopLocRHS" })
+
+
+                @Html.ValidationMessageFor(model => model.CopLocRHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>Rear</b>
+                @Html.EditorFor(model => model.CopLocRear, new { id = "CopLocRear" })
+
+
+                @Html.ValidationMessageFor(model => model.CopLocRear, "", new { @class = "text-danger" })
+            </div>
+            <b>Dual COP</b>
+            @Html.EditorFor(model => model.CopLocDCOP, new { id = "CopLocDCOP" })
+
+
+            @Html.ValidationMessageFor(model => model.CopLocDCOP, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row ">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.CopButton, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CopButton,
+new List<SelectListItem> {
+                       new SelectListItem { Value = "Standard Braille Silver" , Text = "Standard Braille Silver" },
+                       new SelectListItem { Value = "Standard Braille Gold" , Text = "Standard Braille Gold" },
+                       new SelectListItem { Value = " Maxi  - Braille" , Text = " Maxi  - Braille" },
+
+
+
+                    }, new { @class = "form-control", id = "CopButton" })
+                @Html.ValidationMessageFor(model => model.CopButton, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row ">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.HandRailType, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.HandRailType,
+new List<SelectListItem> {
+                       new SelectListItem { Value = "Round stainless steel with rounded corners" , Text = "Round stainless steel with rounded corners" },
+
+
+                    },
+new { @class = "form-control", id = "HandRailType" })
+                @Html.ValidationMessageFor(model => model.HandRailType, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-1"><b>Location</b></div>
+            <div class=" col-md-1">
+                <b>LHS</b>
+                @Html.EditorFor(model => model.HandRailLocLHS, new { id = "HandRailLocLHS" })
+
+
+                @Html.ValidationMessageFor(model => model.HandRailLocLHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>RHS</b>
+                @Html.EditorFor(model => model.HandRailLocRHS, new { id = "HandRailLocRHS" })
+
+
+                @Html.ValidationMessageFor(model => model.HandRailLocRHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>Rear</b>
+                @Html.EditorFor(model => model.HandRailLocRear, new { id = "HandRailLocRear" })
+
+
+                @Html.ValidationMessageFor(model => model.HandRailLocRear, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row ">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.MirrorType, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.MirrorType,
+new List<SelectListItem> {
+                       new SelectListItem { Value = "No Mirror" , Text = "No Mirror" },
+                       new SelectListItem { Value = "Small Mirror" , Text = "Small Mirror" },
+
+
+                    },
+new { @class = "form-control", id = "MirrorType" })
+                @Html.ValidationMessageFor(model => model.MirrorType, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-1"><b>Location</b></div>
+            <div class=" col-md-1">
+                <b>LHS</b>
+                @Html.EditorFor(model => model.MirrorLocLHS, new { id = "MirrorLocLHS" })
+
+
+                @Html.ValidationMessageFor(model => model.MirrorLocLHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>RHS</b>
+                @Html.EditorFor(model => model.MirrorLocRHS, new { id = "MirrorLocRHS" })
+
+
+                @Html.ValidationMessageFor(model => model.MirrorLocRHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>Rear</b>
+                @Html.EditorFor(model => model.MirrorLocRear, new { id = "MirrorLocRear" })
+
+
+                @Html.ValidationMessageFor(model => model.MirrorLocRear, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row ">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Phone,
+new SelectList(ViewBag.Phone, "Text", "Value"),
+new { @class = "form-control", id = "Phone" })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row ">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.CarDisplayType, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CarDisplayType,
+new List<SelectListItem> {
+
+                       new SelectListItem { Value = "No Display" , Text = "No Display" },
+                       new SelectListItem { Value = "Icaro blue" , Text = "Icaro blue" },
+                        new SelectListItem { Value = "Icaro black" , Text = "Icaro black" },
+                         new SelectListItem { Value = "Icaro blue gold frame" , Text = "Icaro blue gold frame" },
+                          new SelectListItem { Value = "Icaro black gold frame" , Text = "Icaro black gold frame" },
+                           new SelectListItem { Value = "Tricolour blue" , Text = "Tricolour blue" },
+                            new SelectListItem { Value = "Tricolour black" , Text = "Tricolour black" },
+                            new SelectListItem { Value = "Tricolour blue gold frame" , Text = "Tricolour blue gold frame" },
+                            new SelectListItem { Value = "Tricolour black gold frame" , Text = "Tricolour black gold frame" },
+
+
+                    },
+new { @class = "form-control", id = "CarDisplayType" })
+                @Html.ValidationMessageFor(model => model.CarDisplayType, "", new { @class = "text-danger" })
+
+            </div><div class=" col-md-2">
+                @Html.LabelFor(model => model.CarDisplayTypeLoc, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CarDisplayTypeLoc,
+new List<SelectListItem> {
+
+                       new SelectListItem { Value = "No Display" , Text = "No Display" },
+                       new SelectListItem { Value = "Icaro blue" , Text = "Icaro blue" },
+                       new SelectListItem { Value = "Icaro black" , Text = "Icaro black" },
+                       new SelectListItem { Value = " Icaro blue gold frame" , Text = " Icaro blue gold frame" },
+                       new SelectListItem { Value = "Icaro black gold frame" , Text = "Icaro black gold frame" },
+
+
+                    },
+    new { @class = "form-control", id = "CarDisplayTypeLoc" })
+                @Html.ValidationMessageFor(model => model.CarDisplayTypeLoc, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-1">
+                @Html.LabelFor(model => model.AllLevels, htmlAttributes: new { @class = "control-label " })
+            </div><div class=" col-md-1">
+                <div class="checkbox col-md-1">
+                    @Html.EditorFor(model => model.AllLevels, new { id = "AllLevels" })
+
+                </div>
+                @Html.ValidationMessageFor(model => model.AllLevels, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2 ">
+                <div id="Level1H">
+
+                    1
+
+                    @Html.EditorFor(model => model.Level1, new { id = "Level1" })
+
+
+                    @Html.ValidationMessageFor(model => model.Level1, "", new { @class = "text-danger" })
+                </div>
+                <div id="Level2H">
+
+
+                    2
+
+                    @Html.EditorFor(model => model.Level2, new { id = "Level2" })
+
+
+                    @Html.ValidationMessageFor(model => model.Level2, "", new { @class = "text-danger" })
+
+                </div>
+                <div id="Level3H">
+
+                    3
+                    @Html.EditorFor(model => model.Level3, new { id = "Level3" })
+
+
+                    @Html.ValidationMessageFor(model => model.Level3, "", new { @class = "text-danger" })
+
+                </div>
+                <div id="Level4H">
+
+                    4        @Html.EditorFor(model => model.Level4, new { id = "Level4" })
+
+
+                    @Html.ValidationMessageFor(model => model.Level4, "", new { @class = "text-danger" })
+
+                </div>
+                <div id="Level5H">
+                    5
+                    @Html.EditorFor(model => model.Level5, new { id = "Level5" })
+
+
+                    @Html.ValidationMessageFor(model => model.Level5, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.CarSafteyProtection, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.CarSafteyProtection,
+new List<SelectListItem> {
+                       new SelectListItem { Value = "Full Height Safety edge" , Text = "Full Height Safety edge" },
+
+
+                    }, new { @class = "form-control", id = "CarSafteyProtection" })
+                @Html.ValidationMessageFor(model => model.CarSafteyProtection, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <h3>Extras</h3>
+        <div class="row">
+
+
+            <div class=" col-md-2">
+                <b>Car Key Switches</b>
+                @Html.EditorFor(model => model.CarKeySwitch, new { id = "CarKeySwitch" })
+
+
+                @Html.ValidationMessageFor(model => model.CarKeySwitch, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-3">
+                <b>Landing Key Switches</b>
+                @Html.EditorFor(model => model.LandingKeySwitch, new { id = "LandingKeySwitch" })
+
+
+                @Html.ValidationMessageFor(model => model.LandingKeySwitch, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                <b>Gong</b>
+                @Html.EditorFor(model => model.Gong, new { id = "Gong" })
+
+
+                @Html.ValidationMessageFor(model => model.Gong, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                <b>Voice Synthesiser</b>
+                @Html.EditorFor(model => model.VoiceSynt, new { id = "VoiceSynt" })
+
+
+                @Html.ValidationMessageFor(model => model.VoiceSynt, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                <b>Remote Control</b>
+                @Html.EditorFor(model => model.RemoteControl, new { id = "RemoteControl" })
+
+
+                @Html.ValidationMessageFor(model => model.RemoteControl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class=" col-md-3">
+                <b>
+                    Shaft Component
+                    RAL Painted
+                </b>
+                @Html.EditorFor(model => model.ShaftComRalPaint, new { id = "ShaftComRalPaint" })
+
+
+                @Html.ValidationMessageFor(model => model.ShaftComRalPaint, "", new { @class = "text-danger" })
+            </div>
+            <div id="SpecialRAL">
+                <div class=" col-md-1">
+                    <b>Color</b>
+                </div><div class=" col-md-2">
+
+                    @Html.EditorFor(model => model.ShaftComRalPaintText, new { htmlAttributes = new { @class = "form-control", id = "ShaftComRalPaintText" } })
+                    @Html.ValidationMessageFor(model => model.ShaftComRalPaintText, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class=" col-md-1">
+                    @Html.EditorFor(model => model.ShaftComRalPaintInt, new { htmlAttributes = new { @class = "form-control", id = "ShaftComRalPaintInt" } })
+                    @Html.ValidationMessageFor(model => model.ShaftComRalPaintInt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class=" col-md-2">
+                <b>Mirror St/St Strip</b>
+                @Html.EditorFor(model => model.MirrorStrip, new { id = "MirrorStrip" })
+
+
+                @Html.ValidationMessageFor(model => model.MirrorStrip, "", new { @class = "text-danger" })
+            </div><div class=" col-md-1">
+                @Html.LabelFor(model => model.NoOfStrips, htmlAttributes: new { @class = "control-label " })
+            </div> <div class=" col-md-1">
+                @Html.DropDownListFor(model => model.NoOfStrips,
+                       new List<SelectListItem> {
+                            new SelectListItem { Value = "0" , Text = "0" },
+                       new SelectListItem { Value = "1" , Text = "1" },
+                       new SelectListItem { Value = "2" , Text = "2" },
+                       new SelectListItem { Value = "3" , Text = "3" }
+
+
+                    },
+         new { @class = "form-control", id = "NoOfStrips" })
+                @Html.ValidationMessageFor(model => model.NoOfStrips, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-1">
+                <b>LHS</b>
+                @Html.EditorFor(model => model.StripLHS, new { id = "StripLHS" })
+
+
+                @Html.ValidationMessageFor(model => model.StripLHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>RHS</b>
+                @Html.EditorFor(model => model.StripRHS, new { id = "StripRHS" })
+
+
+                @Html.ValidationMessageFor(model => model.StripRHS, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>Rear</b>
+                @Html.EditorFor(model => model.StripRear, new { id = "StripRear" })
+
+
+                @Html.ValidationMessageFor(model => model.StripRear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-12">&nbsp;</div>
+        <div class=" col-lg-12">
+
+
+            @Html.LabelFor(model => model.ExtraNotes, htmlAttributes: new { @class = "control-label " })
+
+
+            @Html.EditorFor(model => model.ExtraNotes, new { htmlAttributes = new { @class = "form-control", id = "ExtraNotes" } })
+            @Html.ValidationMessageFor(model => model.ExtraNotes, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+        <h2> Section 5 : Doors</h2>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+
+        <div class="row">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-3">
+                <h3><u> Landing Doors</u></h3>
+            </div>
+            <div class=" col-md-2">
+                <h3> <u>car doors</u></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+                <b>Door Operation</b>
+            </div>
+            <div class=" col-md-2">
+                <b>Door Operation</b>
+            </div>
+            <div class=" col-md-2">
+                <b>  Door Finish</b>
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+
+        <div class="row">
+            <div class=" col-md-2">
+
+                <b> Front Entrance</b>
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.FrontEntLanDoor,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Swing doors" , Text = "Swing doors" },
+
+
+                    },
+new { @class = "form-control", id = "FrontEntLanDoor" })
+                @Html.ValidationMessageFor(model => model.FrontEntLanDoor, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.FrontEntCarDoor,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "N/A" , Text = "N/A" },
+
+
+                    },
+new { @class = "form-control", id = "FrontEntCarDoor" })
+                @Html.ValidationMessageFor(model => model.FrontEntCarDoor, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2">
+                @Html.HiddenFor(model => model.FrontEntCarDoorFinish, new { @class = "form-control", id = "FrontEntCarDoorFinishHidden" })
+
+                @Html.DropDownListFor(model => model.FrontEntCarDoorFinish,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "N/A" , Text = "N/A" },
+
+
+                    },
+new { @class = "form-control", id = "FrontEntCarDoorFinish" })
+                @Html.ValidationMessageFor(model => model.FrontEntCarDoorFinish, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row" id="DiSecondEntLanDoor">
+            <div class=" col-md-4">
+
+                <b>  Second Entrance</b>
+            </div> <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.SecondEntLanDoor,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Swing doors" , Text = "Swing doors" },
+
+
+                    },
+new { @class = "form-control", id = "SecondEntLanDoor" })
+                @Html.ValidationMessageFor(model => model.SecondEntLanDoor, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.SecondEntCarDoor,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "N/A" , Text = "N/A" },
+
+
+                    },
+new { @class = "form-control", id = "SecondEntCarDoor" })
+                @Html.ValidationMessageFor(model => model.SecondEntCarDoor, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.SecondEntCarDoorFinish,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "N/A" , Text = "N/A" },
+
+
+                    },
+new { @class = "form-control", id = "SecondEntCarDoorFinish" })
+                @Html.ValidationMessageFor(model => model.SecondEntCarDoorFinish, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-4">
+                <h3><u> Door Openings & Hinges</u></h3>
+            </div>
+            <div class=" col-md-4">
+                <h3><u> Landing Operating Panel</u></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+                <b> Entrance Type</b>
+            </div>
+            <div class=" col-md-2">
+                <b> Swing Door Hinges</b>
+            </div>
+            <div class=" col-md-2">
+                <b> location</b>
+            </div>
+            <div class=" col-md-2">
+                <b>Finish</b>
+            </div>
+            <div class=" col-md-2">
+                <b>  Buttons</b>
+            </div>
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+
+        <div class="row" id="DivDoorEntType1">
+            <div class=" col-md-2">
+                <input type="text" id="FToF1" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.DoorEntType1,
+                       new List<SelectListItem> {
+                       new SelectListItem {  },
+
+
+                    },
+new { @class = "form-control", id = "DoorEntType1" })
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge1, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge1, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge1, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge1, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation1,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation1" })
+                @Html.ValidationMessageFor(model => model.LopLocation1, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish1,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish1" })
+                @Html.ValidationMessageFor(model => model.LopFinish1, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton1,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton1" })
+                @Html.ValidationMessageFor(model => model.LopButton1, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType2">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge2, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge2, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge2, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge2, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation2,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation2" })
+                @Html.ValidationMessageFor(model => model.LopLocation2, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish2,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish2" })
+                @Html.ValidationMessageFor(model => model.LopFinish2, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton2,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton2" })
+                @Html.ValidationMessageFor(model => model.LopButton2, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType3">
+            <div class=" col-md-2">
+                <input type="text" id="FToF3" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.DoorEntType3,
+                       new List<SelectListItem> {
+                       new SelectListItem {  },
+
+
+                    },
+new { @class = "form-control", id = "DoorEntType3" })
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge3, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge3, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge3, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge3, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation3,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation3" })
+                @Html.ValidationMessageFor(model => model.LopLocation3, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish3,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish3" })
+                @Html.ValidationMessageFor(model => model.LopFinish3, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton3,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton3" })
+                @Html.ValidationMessageFor(model => model.LopButton3, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType4">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge4, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge4, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge4, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge4, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation4,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation4" })
+                @Html.ValidationMessageFor(model => model.LopLocation4, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish4,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish4" })
+                @Html.ValidationMessageFor(model => model.LopFinish4, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton4,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton4" })
+                @Html.ValidationMessageFor(model => model.LopButton4, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType5">
+            <div class=" col-md-2">
+                <input type="text" id="FToF5" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.DoorEntType5,
+                       new List<SelectListItem> {
+                       new SelectListItem {  },
+
+
+                    },
+new { @class = "form-control", id = "DoorEntType5" })
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge5, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge5, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge5, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge5, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation5,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation5" })
+                @Html.ValidationMessageFor(model => model.LopLocation5, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish5,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish5" })
+                @Html.ValidationMessageFor(model => model.LopFinish5, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton5,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton5" })
+                @Html.ValidationMessageFor(model => model.LopButton5, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType6">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge6, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge6, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge6, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge6, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation6,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation6" })
+                @Html.ValidationMessageFor(model => model.LopLocation6, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish6,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish6" })
+                @Html.ValidationMessageFor(model => model.LopFinish6, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton6,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton6" })
+                @Html.ValidationMessageFor(model => model.LopButton6, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType7">
+            <div class=" col-md-2">
+                <input type="text" id="FToF7" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.DoorEntType7,
+                       new List<SelectListItem> {
+                       new SelectListItem {  },
+
+
+                    },
+new { @class = "form-control", id = "DoorEntType7" })
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge7, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge7, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge7, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge7, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation7,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation7" })
+                @Html.ValidationMessageFor(model => model.LopLocation7, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish7,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish7" })
+                @Html.ValidationMessageFor(model => model.LopFinish7, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton7,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton7" })
+                @Html.ValidationMessageFor(model => model.LopButton7, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType8">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge8, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge8, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge8, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge8, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation8,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation8" })
+                @Html.ValidationMessageFor(model => model.LopLocation8, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish8,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish8" })
+                @Html.ValidationMessageFor(model => model.LopFinish8, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton8,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton8" })
+                @Html.ValidationMessageFor(model => model.LopButton8, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType9">
+            <div class=" col-md-2">
+                <input type="text" id="FToF9" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.DoorEntType9,
+                       new List<SelectListItem> {
+                       new SelectListItem {  },
+
+
+                    },
+new { @class = "form-control", id = "DoorEntType9" })
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge9, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge9, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge9, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge9, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation9,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation9" })
+                @Html.ValidationMessageFor(model => model.LopLocation9, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish9,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish9" })
+                @Html.ValidationMessageFor(model => model.LopFinish9, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton9,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton9" })
+                @Html.ValidationMessageFor(model => model.LopButton9, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row" id="DivDoorEntType10">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+            </div>
+            <div class=" col-md-2">
+                Left
+                @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                @Html.RadioButtonFor(model => model.Hinge10, "Left", new { Checked = "checked" })
+
+                @Html.ValidationMessageFor(model => model.Hinge10, "", new { @class = "text-danger" })
+                Right
+                @Html.RadioButtonFor(model => model.Hinge10, "Right", false)
+                @Html.ValidationMessageFor(model => model.Hinge10, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopLocation10,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "In door frame" , Text = "In door frame" },
+                         new SelectListItem { Value = "Remote" , Text = "Remote" },
+
+
+                    },
+new { @class = "form-control", id = "LopLocation10" })
+                @Html.ValidationMessageFor(model => model.LopLocation10, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LopFinish10,
+                       new List<SelectListItem> {
+                       new SelectListItem { Value = "Brushed stainless steel plate" , Text = "Brushed stainless steel plate" },
+                        new SelectListItem { Value = "Mirror stainless steel plate" , Text = "Mirror stainless steel plate" },
+                         new SelectListItem { Value = "Gold Steel 138 plate" , Text = "Gold Steel 138 plate" },
+                          new SelectListItem { Value = "Brushed Stainless Steel superflat plate" , Text = "Brushed Stainless Steel superflat plate" },
+                           new SelectListItem { Value = "Mirror stainless steel super flat plate" , Text = "Mirror stainless steel super flat plate" },
+                            new SelectListItem { Value = "Gold Steel 138 superflat plate" , Text = "Gold Steel 138 superflat plate" },
+                         new SelectListItem { Value = "Aluminium plate" , Text = "Aluminium plate" },
+
+                    },
+new { @class = "form-control", id = "LopFinish10" })
+                @Html.ValidationMessageFor(model => model.LopFinish10, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LopButton10,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Silver Braille" , Text = "Silver Braille" },
+                       new SelectListItem { Value = "Gold braille" , Text = "Gold braille" },
+                       new SelectListItem { Value = "Waterproof" , Text = "Waterproof" },
+
+                    },
+new { @class = "form-control", id = "LopButton10" })
+                @Html.ValidationMessageFor(model => model.LopButton10, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row col-md-4"></div><div class="col-md-4"><h3><u>Landing Door Finishes</u></h3></div>
+
+        <div class="row">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+                <b> Door Type</b>
+            </div>
+            <div class=" col-md-2">
+                <b>  Door Finish</b>
+            </div>
+            <div class=" col-md-2">
+                <b> Frame Finish</b>
+            </div>
+            <div class=" col-md-2">
+                <b>Door Handle</b>
+            </div>
+            <div class=" col-md-1">
+                <b>  Embedded Door Closers</b>
+            </div>
+            <div class=" col-md-1">
+                <b>  Auto Door Openers</b>
+            </div>
+
+        </div>
+        <div class="row" id="DivLDFDoorType1">
+            <div class=" col-md-2">
+                <input type="text" id="FToFD1" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType1,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType1" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType1, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish1,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish1" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish1, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish1,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish1" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish1, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle1,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle1" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle1, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose1, new { id = "LDFEmbDoorClose1" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose1, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener1, new { id = "LDFAutoDoorOpener1" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener1, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType2">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType2,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType2" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType2, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish2,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish2" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish2, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish2,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish2" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish2, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle2,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle2" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle2, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose2, new { id = "LDFEmbDoorClose2" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose2, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener2, new { id = "LDFAutoDoorOpener2" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener2, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType3">
+            <div class=" col-md-2">
+                <input type="text" id="FToFD3" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType3,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType3" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType3, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish3,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish3" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish3, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish3,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish3" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish3, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle3,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle3" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle3, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose3, new { id = "LDFEmbDoorClose3" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose3, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener3, new { id = "LDFAutoDoorOpener3" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener3, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType4">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType4,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType4" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType4, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish4,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish4" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish4, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish4,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish4" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish4, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle4,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle4" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle4, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose4, new { id = "LDFEmbDoorClose4" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose4, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener4, new { id = "LDFAutoDoorOpener4" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener4, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType5">
+            <div class=" col-md-2">
+                <input type="text" id="FToFD5" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType5,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType5" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType5, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish5,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish5" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish5, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish5,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish5" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish5, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle5,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle5" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle5, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose5, new { id = "LDFEmbDoorClose5" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose5, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener5, new { id = "LDFAutoDoorOpener5" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener5, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType6">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType6,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType6" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType6, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish6,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish6" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish6, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish6,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish6" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish6, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle6,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle6" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle6, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose6, new { id = "LDFEmbDoorClose6" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose6, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener6, new { id = "LDFAutoDoorOpener6" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener6, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType7">
+            <div class=" col-md-2">
+                <input type="text" id="FToFD7" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType7,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType7" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType7, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish7,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish7" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish7, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish7,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish7" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish7, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle7,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle7" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle7, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose7, new { id = "LDFEmbDoorClose7" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose7, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener7, new { id = "LDFAutoDoorOpener7" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener7, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType8">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType8,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType8" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType8, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish8,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish8" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish8, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish8,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish8" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish8, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle8,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle8" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle8, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose8, new { id = "LDFEmbDoorClose8" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose8, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener8, new { id = "LDFAutoDoorOpener8" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener8, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType9">
+            <div class=" col-md-2">
+                <input type="text" id="FToFD9" class="class anotherclass" readonly="readonly">
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType9,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType9" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType9, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish9,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish9" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish9, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish9,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish9" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish9, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle9,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle9" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle9, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose9, new { id = "LDFEmbDoorClose9" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose9, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener9, new { id = "LDFAutoDoorOpener9" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener9, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row" id="DivLDFDoorType10">
+            <div class=" col-md-2">
+
+            </div>
+            <div class=" col-md-2">
+
+
+                @Html.DropDownListFor(model => model.LDFDoorType10,
+
+new SelectList(ViewBag.LDFDoorType, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorType10" })
+                @Html.ValidationMessageFor(model => model.LDFDoorType10, "", new { @class = "text-danger" })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFDoorFinish10,
+
+new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFDoorFinish10" })
+                @Html.ValidationMessageFor(model => model.LDFDoorFinish10, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.LDFFrameFinish10,
+                      new SelectList(ViewBag.LDFDoorFinish, "Text", "Value"),
+new { @class = "form-control", id = "LDFFrameFinish10" })
+                @Html.ValidationMessageFor(model => model.LDFFrameFinish10, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-2">
+
+                @Html.DropDownListFor(model => model.LDFDoorHandle10,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Natural anodised aluminium" , Text = "Natural anodised aluminium" },
+                        new SelectListItem { Value = "Shiny anodised aluminium" , Text = "Shiny anodised aluminium" },
+                         new SelectListItem { Value = "Goldente" , Text = "Golden" },
+                          new SelectListItem { Value = "RAL" , Text = "RAL" },
+                           new SelectListItem { Value = "No handle" , Text = "No handle" },
+                            new SelectListItem { Value = "Standard black" , Text = "Standard black" },
+
+
+                    },
+new { @class = "form-control", id = "LDFDoorHandle10" })
+                @Html.ValidationMessageFor(model => model.LDFDoorHandle10, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+
+                @Html.EditorFor(model => model.LDFEmbDoorClose10, new { id = "LDFEmbDoorClose10" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFEmbDoorClose10, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+
+                @Html.EditorFor(model => model.LDFAutoDoorOpener10, new { id = "LDFAutoDoorOpener10" })
+
+
+                @Html.ValidationMessageFor(model => model.LDFAutoDoorOpener10, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+
+        <div id="DivSection6">
+            <h2> Section 6 : Tower</h2>
+            <div class="col-md-12">&nbsp;</div>
+            <div class="col-md-12">&nbsp;</div>
+            <div class="row">
+                <div class=" col-md-4">
+                    Left
+                    @*// @Html.EditorFor(model => model.RightHandHinge1, new { id = "RightHandHinge1" })*@
+                    @Html.RadioButtonFor(model => model.TowerLocation, "Indoor", new { Checked = "checked" })
+
+                    @Html.ValidationMessageFor(model => model.TowerLocation, "", new { @class = "text-danger" })
+                    Right
+                    @Html.RadioButtonFor(model => model.TowerLocation, "Outdoor", false)
+                    @Html.ValidationMessageFor(model => model.TowerLocation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">&nbsp;</div>
+
+                <div class=" col-md-2" style="float: left; width: 10%;">
+                    @Html.LabelFor(model => model.StructureType, htmlAttributes: new { @class = "control-label " })
+                </div>
+                <div class=" col-md-2">
+
+                    @Html.DropDownListFor(model => model.StructureType,
+                       new List<SelectListItem> {
+
+                       new SelectListItem { Value = "Aluminium" , Text = "Aluminium" },
+
+
+
+                    },
+new { @class = "form-control", id = "StructureType" })
+                    @Html.ValidationMessageFor(model => model.StructureType, "", new { @class = "text-danger" })
+                </div>
+
+                <div id="DivTHPartialStructHeight">
+
+                    <div class="col-md-3" style="float: left; width: 15%;"><b>TopHat/Partial  Structure Height</b></div>
+                    <div class=" col-md-2">
+                        @Html.EditorFor(model => model.THPartialStructHeight, new { htmlAttributes = new { @class = "form-control", id = "THPartialStructHeight" } })
+                        @Html.ValidationMessageFor(model => model.THPartialStructHeight, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">&nbsp;</div>
+            <div class="row">
+
+                <div class=" col-md-2" style="float: left; width: 10%;">
+                    @Html.LabelFor(model => model.StructureFinish, htmlAttributes: new { @class = "control-label " })
+                </div>
+                <div class=" col-md-2">
+
+                    @Html.DropDownListFor(model => model.StructureFinish,
+ new SelectList(ViewBag.StructureFinish, "Text", "Value"),
+new { @class = "form-control", id = "StructureFinish" })
+                    @Html.ValidationMessageFor(model => model.StructureFinish, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">&nbsp;</div>
+            <div class=" col-md-1">
+                <h4>Cladding</h4>
+            </div>
+            <div class="col-md-12">&nbsp;</div>
+            <div class="row">
+
+
+                <div class=" col-md-1" style="float: left; width: 10%;">
+                    <b>LHS</b>
+                </div><div class=" col-md-2">
+                    @Html.DropDownListFor(model => model.CladdingLHS,
+                       new List<SelectListItem>
+                       {
+
+                       },
+new { @class = "form-control", id = "CladdingLHS" })
+                    @Html.ValidationMessageFor(model => model.CladdingLHS, "", new { @class = "text-danger" })
+                </div>
+
+                <div class=" col-md-1" style="float: left; width: 7%;">
+                    <b> RHS</b>
+                </div><div class=" col-md-2">
+                    @Html.DropDownListFor(model => model.CladdingRHS,
+                       new List<SelectListItem>
+                       {
+
+                       },
+new { @class = "form-control", id = "CladdingRHS" })
+                    @Html.ValidationMessageFor(model => model.CladdingRHS, "", new { @class = "text-danger" })
+                </div>
+                <div class=" col-md-1" style="float: left; width: 7%;">
+                    <b>Rear</b>
+                </div> <div class=" col-md-2">
+                    @Html.DropDownListFor(model => model.CladdingRear,
+                       new List<SelectListItem>
+                       {
+
+                       },
+new { @class = "form-control", id = "CladdingRear" })
+                    @Html.ValidationMessageFor(model => model.CladdingRear, "", new { @class = "text-danger" })
+                </div>
+                <div class=" col-md-1" style="float: left; width: 7%;">
+                    <b>Front</b>
+                </div> <div class=" col-md-2">
+                    @Html.DropDownListFor(model => model.CladdingFront,
+                       new List<SelectListItem>
+                       {
+
+                       },
+new { @class = "form-control", id = "CladdingFront" })
+                    @Html.ValidationMessageFor(model => model.CladdingFront, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-12">&nbsp;</div>
+            <div class="row">
+
+                <div class=" col-md-2" style="float: left; width: 10%;">
+                    @Html.LabelFor(model => model.Roof, htmlAttributes: new { @class = "control-label " })
+                </div>
+
+                <div class=" col-md-2">
+
+                    @Html.DropDownListFor(model => model.Roof,
+
+ new List<SelectListItem> {
+
+                       new SelectListItem { Value = "No Roof" , Text = "No Roof" },
+                        new SelectListItem { Value = "Primed Painted (finishing by customer)" , Text = "Primed Painted (finishing by customer)" },
+                         new SelectListItem { Value = "RAL painted colour to be defined" , Text = "RAL painted colour to be defined" },
+
+
+
+                    },
+new { @class = "form-control", id = "Roof" })
+                    @Html.ValidationMessageFor(model => model.Roof, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+
+        <h2> Section 7 : Warranty</h2>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+
+
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Warranty, htmlAttributes: new { @class = "control-label " })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Warranty,
+                     new List<SelectListItem> {
+
+                       new SelectListItem { Value = "1" , Text = "1" },
+                         new SelectListItem { Value = "2" , Text = "2" },
+                          new SelectListItem { Value = "3" , Text = "3" },
+                           new SelectListItem { Value = "4" , Text = "4" },
+                            new SelectListItem { Value = "5" , Text = "5" },
+                             new SelectListItem { Value = "6" , Text = "6" },
+                              new SelectListItem { Value = "7" , Text = "7" },
+                               new SelectListItem { Value = "8" , Text = "8" },
+                                new SelectListItem { Value = "9" , Text = "9" },
+                                 new SelectListItem { Value = "10" , Text = "10" },
+                    },
+new { @class = "form-control", id = "Warranty" })
+                @Html.ValidationMessageFor(model => model.Servicing, "", new { @class = "text-danger" })
+            </div>
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Servicing, htmlAttributes: new { @class = "control-label " })
+            </div>
+            <div class=" col-md-2">
+                @Html.DropDownListFor(model => model.Servicing,
+                     new List<SelectListItem> {
+ new SelectListItem { Value = "1" , Text = "1" },
+                         new SelectListItem { Value = "2" , Text = "2" },
+                          new SelectListItem { Value = "3" , Text = "3" },
+                           new SelectListItem { Value = "4" , Text = "4" },
+                            new SelectListItem { Value = "5" , Text = "5" },
+                             new SelectListItem { Value = "6" , Text = "6" },
+                              new SelectListItem { Value = "7" , Text = "7" },
+                               new SelectListItem { Value = "8" , Text = "8" },
+                                new SelectListItem { Value = "9" , Text = "9" },
+                                 new SelectListItem { Value = "10" , Text = "10" },
+                    },
+new { @class = "form-control", id = "Servicing" })
+                @Html.ValidationMessageFor(model => model.Servicing, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+
+        <h2> Section 8 : Pricing</h2>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+
+
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.SellingPrice, htmlAttributes: new { @class = "control-label " })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.SellingPrice, new { htmlAttributes = new { @class = "form-control", id = "SellingPrice" } })
+                @Html.ValidationMessageFor(model => model.SellingPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+
+
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.Gst, htmlAttributes: new { @class = "control-label " })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.Gst, new { htmlAttributes = new { @class = "form-control", id = "Gst" } })
+                @Html.ValidationMessageFor(model => model.Gst, "", new { @class = "text-danger" })
+            </div>
+            <div class=" col-md-1">
+                <b>GST Free</b>
+                @Html.EditorFor(model => model.GstFree, new { id = "GstFree" })
+
+
+                @Html.ValidationMessageFor(model => model.GstFree, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-12">&nbsp;</div>
+        <div class="row">
+
+
+
+            <div class=" col-md-2" style="float: left; width: 10%;">
+                @Html.LabelFor(model => model.TotalSellingPrice, htmlAttributes: new { @class = "control-label " })
+
+            </div>
+            <div class=" col-md-2">
+                @Html.EditorFor(model => model.TotalSellingPrice, new { htmlAttributes = new { @class = "form-control", id = "TotalSellingPrice" } })
+                @Html.ValidationMessageFor(model => model.TotalSellingPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div>
+            @Html.HiddenFor(model => model.Section1ModelId, new { Value = @ViewBag.ProductId, id = "Section1ModelId" })
+        </div>
+
+
+        <div class="col-md-12">&nbsp;</div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts{
+    <link href="/Content/dataTable/demo_table.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery.dataTables.1.8.2.js" type="text/javascript"></script>
+    <script src="~/Scripts/mainquote.js"></script>
+}

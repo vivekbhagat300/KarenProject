@@ -1,0 +1,653 @@
+﻿@model KarenProject.Models.LVGquote
+@{
+
+    ViewBag.Title = "IGV Lifts";
+}
+
+
+<style>
+    .custom-add-text:focus {
+        border-color: rgba(126, 239, 104, 0.0);
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0) inset, 0 0 0px rgb(0, 0, 0);
+        outline: 0 none;
+    }
+
+    .custom-add-text-div {
+        border-color: rgba(100, 120, 255, 0.8);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(100, 120, 255, 0.6);
+        outline: 0 none;
+    }
+</style>
+<script type="text/javascript">
+
+
+    function borderNull(e) {
+        e.parentElement.className = e.parentElement.className + " custom-add-text-div";;
+    }
+
+    function borderNullRevert(e) {
+        var temp = e.parentElement.className; // = e.parentElement.className + " custom-add-text-div";;
+        temp = temp.trim();
+        var temp_array = temp.split(" ");
+        var i = temp_array.length
+        while (i--) {
+            if (temp_array[i] === "custom-add-text-div") {
+
+                temp_array[i] = "";
+            }
+        }
+
+        var classstring = "";
+        var i1 = temp_array.length
+
+        for (var j = 0; j < i1; j++) {
+            classstring += (" " + temp_array[j]);
+        }
+
+
+        e.parentElement.className = classstring.trim();
+
+    }
+</script>
+
+<div style="background-color:#6a9fb0">
+    <div class="row" style="margin-bottom:10px;padding:10px;">
+        <div class=" col-md-2" style="float: left; width: 30%;">
+            <h2>Pricing</h2>
+        </div>
+
+    </div>
+    <br>
+    @using (Html.BeginForm())
+    {
+
+
+        @Html.AntiForgeryToken()
+
+
+
+        <div style="background-color:#b1eef8">
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;"><b>General Specification</b></span></div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 20%;"><span style="font-size:20px;">Project Name:</span></div>
+                <div class=" col-md-2" style="float: left; width: 30%;">@Html.TextBox("hello", "", new { @class = "form-control", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;"><span style="font-size:20px;">Branch:</span></div>
+                <div class=" col-md-2" style="float: left; width: 30%;">@Html.TextBox("hello", "", new { @class = "form-control", placeholder = "" })</div>
+
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;">Project Type:</span></div>
+                <div class=" col-md-2 " style="float: left; width: 20%;">@Html.TextBox("hello", "", new { @class = "form-control", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;">Lift Code:</span></div>
+                <div class=" col-md-2 " style="float: left; width: 20%;">@Html.TextBox("hello", "", new { @class = "form-control", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;">Metro/Regional:</span></div>
+                <div class=" col-md-2" style="float: left; width: 20%;">@Html.TextBox("hello", "", new { @class = "form-control", @style = "width:100%", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;">Sales Person:</span></div>
+                <div class=" col-md-2 " style="float: left; width: 20%;">@Html.TextBox("hello", "", new { @class = "form-control", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;">Lift Type:</span></div>
+                <div class=" col-md-2" style="float: left; width: 20%;">@Html.TextBox("hello", "", new { @class = "form-control", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;">Shaft Type:</span></div>
+                <div class=" col-md-2" style="float: left; width: 20%;">@Html.TextBox("hello", "", new { @class = "form-control", placeholder = "" })</div>
+            </div>
+
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;">Stops:</span></div>
+                <div class=" col-md-2 " style="float: left; width: 20%;">@Html.TextBox("hello", "", new { @class = "form-control", @style = "width:100%", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 30%;"><span style="font-size:20px;">Model:</span></div>
+                <div class=" col-md-2 " style="float: left; width: 20%;">@Html.TextBox("hello", "", new { @class = "form-control", placeholder = "" })</div>
+            </div>
+
+            <hr>
+
+
+            <div class="row" style="margin-bottom:20px;padding-left:10px;padding-right:10px">
+                <div class=" col-md-2" style="float: left; width: 36%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 28%;margin-right:2%;margin-left:2%;background-color:#0094ff;text-align:center;"><span style="font-size:20px;">Cost Price</span></div>
+                <div class=" col-md-2" style="float: left; width: 28%;margin-right:2%;margin-left:2%;background-color:#0094ff;text-align:center;"><span style="font-size:20px;">Selling Price</span></div>
+            </div>
+
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;"><b>EQUIPMENT COST  (euro)</b></span></div>
+            </div>
+
+
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Lift Type </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Domus lift </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2  form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;">&nbsp;</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:24px;"><b>Sec 2 - General Specs</b></span></div>
+
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Shaft type </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Masonry </span></div>
+                <div class=" col-md-2 form-control" style=" float:left; width:20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Entrance Type </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Front entrance </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Model </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">IC/1 to 1C/12</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">No of stops </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">2</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Drive System </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Hydraulic </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Power </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Single Phase - 25 amps </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Speed </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">0.25</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Capacity </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">300 Kg</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;">&nbsp;</div>
+
+            </div>
+            <hr style="color:#000000">
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;"><b>Section 3</b></span></div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Height </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">2000 mm </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Car size </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Standard </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Door Size </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Standard </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Travel </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Upto 3650</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"></span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;"><b>Section 4</b></span></div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Car Walls </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Skinplates </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Single Entry  (3 walls x 95) </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Ceiling </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">White with Halogen Spots </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Floor </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">marmoleums </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Profile </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Anodised Aluminium Natural </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">COP </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Brushed St/St plate </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">COP Button </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Standard Braille Silver </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Handrail </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">No handrails </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Phone </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Handset </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Car protection </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Full Height safety Edge </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <hr>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;"><b>Extras</b></span></div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Car key switches </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"></span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Landing key switches </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">52 x 2 doors</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Guide Rails 2.5</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"></span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Shaft Lighting </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"></span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;">&nbsp</span></div>
+            </div>
+            <hr>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;"><b>Section 5 - Door </b></span></div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">LOP Location</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">In door Frame </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Finish </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Brushed St/St </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Buttons </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Silver Braille </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Door Type </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">B - Panoramic Aluminium </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Door Finish</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"> Anodised Aluminium </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Frame Finish </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Anodised Aluminium </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Door handle </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Natural Anodises Aluminium </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Embedded door closers </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">95 euro each (197.30 x 2) </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;">&nbsp;</span></div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Gross Euro cost </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Discount Rate </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"><b>Net Euro Price</b> </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 18%;"><span style="width:5%;float: left;">€</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 " style="float: left; width: 60%;">&nbsp;</div>
+            </div>
+
+
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">AUD Rate</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">€</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">€</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;"></div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 36%;"><span style="font-size:20px;">Total Equipment Cost</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float:left; width:31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:20px;"><b>LOCAL COST (AUD)</b></span></div>
+            </div>
+
+         
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 36%;"><span style="font-size:20px;">Overseas Freight</span></div>
+                <div class=" col-md-2 form-control"  style="float:left; width:31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control"  style="float:left; width:31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+
+            </div>
+
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;">Local Consumables </span></div>
+                
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Electrical & Mechanical </span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Start up Kits </span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;"></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Key boxes</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;"></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Labels</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;"></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Hydraulic Oil (2 stops)</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;"></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Setdown</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;"></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Work Cover registration fee</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;"></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Electrical & Mechanical Total</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Equipment Hire</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Tower Glass</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Local Transport</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Metro</span></div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Transport</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">4 weeks</span></div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 36%;"><span style="font-size:20px;">Total Local Consumable</span></div>
+                <div class=" col-md-2  form-control" style="float: left; width: 31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 100%;"><span style="font-size:22px;">Labour</span></div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Standard hours 112 * $51.73 NSW rate</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;"></span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Testing hours 16*51.73</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 36%;"><span style="font-size:20px;">Total Labour</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Warranty</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Warranty 3 hrs x 110 per hour x 3 years</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:22px;">Service</span></div>
+                <div class=" col-md-2" style="float: left; width: 18%;"><span style="font-size:20px;">Service 6.5 hrs x 110/ hr x 1 year</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 20%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 20%;">&nbsp;</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 36%;"><span style="font-size:20px;">Maintenance total</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2 form-control" style="float: left; width: 31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+
+            </div>
+
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 36%;"><span style="font-size:20px;">Total Cost</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 31.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+                <div class=" col-md-2" style="float: left; width: 14.5%;background-color:#b6ff00;"><span style="font-size:15px;">Selling Price (ex GST)</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 16.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 67.5%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 14.5%;background-color:#b6ff00;"><span style="font-size:15px;">Variations</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 16.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 67.5%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 14.5%;background-color:#b6ff00;"><span style="font-size:15px;">GST</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 16.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 67.5%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 14.5%;background-color:#b6ff00;"><span style="font-size:15px;">Total Selling Price</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 16.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px;padding:10px;">
+                <div class=" col-md-2" style="float: left; width: 67.5%;">&nbsp;</div>
+                <div class=" col-md-2" style="float: left; width: 14.5%;background-color:#b6ff00;"><span style="font-size:15px;">Gross Margin (ex GST)</span></div>
+                <div class=" col-md-2 form-control" style="float: left; width: 16.5%;"><span style="width:5%;float: left;">$</span>@Html.TextBox("hello", "", new { @Style = "width:95%;float:left;border:0px;text-align:right;", @class = "custom-add-text", @onfocusout = "borderNullRevert(this)", @onfocus = "borderNull(this)", placeholder = "" })</div>
+            </div>
+
+        </div>
+
+
+    }
+</div>
+<div>
+</div>
+@section Scripts{
+    <link href="/Content/dataTable/demo_table.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery.dataTables.1.8.2.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/mainquote.js"></script>
+}

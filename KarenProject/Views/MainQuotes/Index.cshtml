@@ -1,0 +1,15 @@
+﻿@model KarenProject.Models.section1Model
+
+
+
+@{
+    ViewBag.Title = "Index";
+
+
+
+<h2>Quotes for Project : @Model.ProjectName</h2>
+@Html.Partial("_mainQuote", @Model.MainList)
+<p>
+    @Html.ActionLink("Create New", "Create", new { projectId = Model.id })
+</p>
+}

@@ -1,0 +1,19 @@
+﻿@model KarenProject.Models.section1Model
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+
+<div style="color:brown" class="btn-default">
+    <h4 ><u> @Html.ActionLink("Back To List", "Index", "MainQuotes", new { id = ViewBag.projectID }, null)</u> </h4>
+</div>
+<div style="color:brown" class="btn btn-default">
+    @Html.ActionLink("Create IGV", "Create", "LVGQuotes", new { section_1 = ViewBag.projectID }, null) |
+    </div>
+<div style="color:brown" class="btn btn-default">
+    @Html.ActionLink("Create SUP2", "Create", "supplier2", new { section_1 = ViewBag.projectID }, null) |
+</div>

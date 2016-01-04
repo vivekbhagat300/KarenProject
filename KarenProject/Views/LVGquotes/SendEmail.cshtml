@@ -1,0 +1,277 @@
+﻿@model KarenProject.Models.MailModel
+<script>
+    function addTo()
+    {
+        var rootFile = document.getElementById("ToDiv");
+
+        var eles = rootFile.childNodes;
+        var values = [];
+        for (var i = 0; i < rootFile.childElementCount; i++)
+        {
+            var ele = document.getElementById("ToAdd_"+i+"_");
+            values[i] = ele.value;
+         
+        }
+
+        rootFile.innerHTML = rootFile.innerHTML + "<input class=form-control id=ToAdd_" + rootFile.childElementCount + "_ name=ToAdd[" + rootFile.childElementCount + "] style='width:100%;' type=text >";
+
+        eles = rootFile.childNodes;
+
+        for (var i = 0; i < values.length; i++) {
+            var ele = document.getElementById("ToAdd_" + i + "_");
+            ele.value = values[i];
+         
+        }
+    }
+
+    function addBcc() {
+        var rootFile = document.getElementById("BccDiv");
+
+        var eles = rootFile.childNodes;
+        var values = [];
+        for (var i = 0; i < rootFile.childElementCount; i++) {
+            var ele = document.getElementById("BccAdd_" + i + "_");
+            values[i] = ele.value;
+
+        }
+
+        rootFile.innerHTML = rootFile.innerHTML + "<input class=form-control id=BccAdd_" + rootFile.childElementCount + "_ name=BccAdd[" + rootFile.childElementCount + "] style='width:100%;' type=text >";
+
+        eles = rootFile.childNodes;
+
+        for (var i = 0; i < values.length; i++) {
+            var ele = document.getElementById("BccAdd_" + i + "_");
+            ele.value = values[i];
+
+        }
+    }
+
+
+    function addFile() {
+        var rootFile = document.getElementById("addFile");
+
+        var newele_div0 = document.createElement("div");
+        newele_div0.setAttribute("class", "row");
+        var newele_div1 = document.createElement("div");
+        newele_div1.setAttribute("class", "col-md-2 fileattach");
+        newele_div1.innerHTML = "&nbsp;";
+        var newele_div2 = document.createElement("div");
+        newele_div2.setAttribute("class", "col-md-2");
+        var newele_input = document.createElement("input");
+        newele_input.setAttribute("type", "file")
+        newele_input.setAttribute("id", "fileuploader_"+(rootFile.childElementCount)+"_")
+        newele_input.setAttribute("class", "fileUploader[" + (rootFile.childElementCount) + "]")
+
+        newele_div2.appendChild(newele_input);
+        newele_div0.appendChild(newele_div1);
+        newele_div0.appendChild(newele_div2);
+
+
+        rootFile.appendChild(newele_div0);
+        /*var eles = rootFile.childNodes;
+        var values = [];
+        for (var i = 0; i < rootFile.childElementCount; i++) {
+            var ele = document.getElementById("fileuploader_" + i + "_");
+            values[i] = ele.value;
+            alert(values[i]);
+        }
+        rootFile.innerHTML = rootFile.innerHTML + "<div class=row><div class='col-md-2 fileattach'>&nbsp;</div><div class='col-md-2'><input id=fileuploader_" + (rootFile.childElementCount) + "_ name='fileUploader[" + (rootFile.childElementCount) + "]' type=file /></div></div>";
+
+        eles = rootFile.childNodes;
+
+        for (var i = 0; i < values.length; i++) {
+            var ele = document.getElementById("fileuploader_" + i + "_");
+            ele.filname = values[i];
+            alert(values[i]);
+        }*/
+    }
+
+    function removeTo() {
+        var rootFile = document.getElementById("ToDiv");
+        if (rootFile.childElementCount > 1) {
+            rootFile.removeChild(rootFile.childNodes[rootFile.childElementCount]);
+        }
+    }
+
+    function removeBcc() {
+        var rootFile = document.getElementById("BccDiv");
+        if (rootFile.childElementCount > 1) {
+            rootFile.removeChild(rootFile.childNodes[rootFile.childElementCount]);
+        }
+    }
+
+
+    function removeFile() {
+
+        var rootFile = document.getElementById("addFile");
+
+        if (rootFile.childElementCount > 1) {
+            rootFile.removeChild(rootFile.childNodes[rootFile.childElementCount+1]);
+        }
+    }
+
+
+
+</script>
+
+@{
+    
+
+
+    if (ViewBag.Message == "Sent")
+    {
+        <h1>Email sent successfully</h1><br />
+    @Html.ActionLink("Go back to quote", "Edit", new { id = @Model.quoteID });<br/>
+    @Html.ActionLink("Back to List", "Index", "MainQuotes", new { id = @Model.mainquiteId }, null)
+    }
+    else
+    {
+        if (ViewBag.Message == "Not Sent")
+        {
+            <h1>Email not sent successfully</h1><br />
+            @Html.ActionLink("Go back to quote", "Edit", new { id = @Model.quoteID });<br />
+    @Html.ActionLink("Back to List", "Index", "MainQuotes", new { id = @Model.mainquiteId }, null)
+        }
+        else
+        {
+
+            using (Html.BeginForm("SendEmail", "LVGquotes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.mainquiteId, new {  })
+                <div class="form-horizontal">
+                    <h4>Email </h4>
+                    <hr />
+
+                    <div class="form-group" style="width:100%;">
+                        @Html.Label("From", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.from, new { @class = "form-control", @style = "width:100%;", @readonly = "readOnly" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width:100%;">
+                        @Html.Label("To", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.To, new { @class = "form-control", @style = "width:100%;" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;">
+                        @Html.Label("Add To", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4" id="ToDiv">
+                            @Html.TextBoxFor(model => model.ToAdd[0], new { @class = "form-control", @style = "width:100%;" })
+                        </div>
+                        <div class="btn btn-default col-md-1" onclick="addTo();">[+]</div>
+                        <div class="btn btn-default col-md-1" onclick="removeTo();">[-]</div>
+                    </div>
+
+                    <div class="form-group" style="width:100%;">
+                        @Html.Label("CC", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.cc, new { @class = "form-control", @style = "width:100%;" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" style="width:100%;">
+                        @Html.Label("BCC", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4" id="BccDiv">
+                            @Html.TextBoxFor(model => model.BccAdd[0], new { @class = "form-control", @style = "width:100%;" })
+                        </div>
+                        <div class="btn btn-default col-md-1" onclick="addBcc();">[+]</div>
+                        <div class="btn btn-default col-md-1" onclick="removeBcc();">[-]</div>
+
+                    </div>
+
+                    
+                    <div class="form-group" style="width:100%;">
+                        @Html.Label("Subject", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.subject, new { @class = "form-control", @style = "width:100%;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width:100%;">
+                        @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", @style = "width:550px;height:200px;" })
+                        </div>
+                    </div>
+                    <div id="addFile">
+                        <div class="row">
+                            <div class=" col-md-2">Attach Files:</div>
+                            <div class=" col-md-2 fileattach"><input id="fileuploader_0_" name="fileUploader[0]" type="file" /></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn btn-default col-md-1" onclick="addFile();">[+]</div>
+                        <div class="btn btn-default col-md-1" onclick="removeFile();">[-]</div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-2">&nbsp;</div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><b>Attachment:</b></div>
+                    <div class="col-md-1">
+
+
+                        @Html.EditorFor(model => model.Quote, new { id = "Quote" })
+                        @Html.ValidationMessageFor(model => model.Quote, "", new { @checked = "checked", @class = "text-danger" })
+                        <b>Quote</b>
+                    </div>
+                    <div class=" col-md-2" style="float: left; width: 10%;">
+
+
+                        @Html.EditorFor(model => model.brochure, new { id = "brochure" })
+                        @Html.ValidationMessageFor(model => model.brochure, "", new { @class = "text-danger" })
+                        <b>Brochure</b>
+                    </div>
+
+                    <div class=" col-md-2">
+
+                        @Html.EditorFor(model => model.SampleDrawings, new { id = "SampleDrawings" })
+                        @Html.ValidationMessageFor(model => model.SampleDrawings, "", new { @class = "text-danger" })
+                        <b>Sample Drawing</b>
+                    </div>
+
+
+
+                    <div class=" col-md-3">
+                        @Html.EditorFor(model => model.LadderBracketDrawings, new { id = "LadderBracketDrawings" })
+                        @Html.ValidationMessageFor(model => model.LadderBracketDrawings, "", new { @class = "text-danger" })
+                        <b>Ladder Bracket Drawings</b>
+                    </div>
+                </div>
+                <div class="row col-md-4">
+                    @Html.ActionLink("View Quote", "downloadfile", new { fname = @ViewBag.filename })
+                </div>
+                <div>
+                    @Html.HiddenFor(model => model.quoteID, new { Value = @ViewBag.id, id = "quoteID" })
+                    @Html.HiddenFor(model => model.filename, new { Value = @ViewBag.filename, id = "filename" })
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Send" class="btn btn-default" />
+                    </div>
+                </div>
+
+            }
+        }
+
+
+
+    }
+
+}
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

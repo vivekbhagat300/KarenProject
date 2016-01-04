@@ -1,0 +1,50 @@
+﻿@model KarenProject.Models.MainQuote
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MainQuote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LiftType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiftType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LiftModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiftModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Part)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Part)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expiry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expiry)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
